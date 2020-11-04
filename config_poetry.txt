@@ -1,0 +1,10 @@
+Dans le terminal, place-toi dans le dossier ou tu mets tes projets d’habitude. Et tu mets :
+git clone git@gitlab.com:yotta-academy/mle-bootcamp/projects/ml-project/fall-2020/lead-scoring-alessio-marieme.git
+
+après : cd lead-scoring_alessio-marieme pour te mettre dans le projet
+Normalement, en faisant le clone tu dois avoir un pyproject.toml et poetry.lock dans ton repertoire, tu peux vérifier avec 
+un ls. Fais poetry install pour installer toutes les librairies qui se trouvent dans ces fichiers.
+Si ça ne marche pas tu peux essayer : poetry env use python3.8 avant de faire poetry install
+
+Tu peux maintenant créer les dossiers, domain, architecture, interface
+
