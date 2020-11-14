@@ -1,18 +1,75 @@
+# -*- coding: UTF-8 -*-
 import numpy as np 
 import pandas as pd
-from sklearn.base import BaseEstimator, TransformerMixin
+
+import os
+import re
+
+import src.config.config as cf
 
 
  
-class CleanDataTransformer( BaseEstimator, TransformerMixin ):
-    #Class Constructor 
-    def __init__( self, feature_names ):
-        self._feature_names = feature_names 
+class CleanDataTransformer:
+    """
+    cleans customer data from raw file
+    """
+    def __init__(self, path="") :
+        self.path = path
+
+
+    def load_cleaned_data(self) :
+        
+        name, extension = os.path.splitext(self.path)
+        if extension == '.csv':
+            df = pd.read_csv(self.path, sep=';') 
+        elif extension == '.parquet':
+            df = pd.read_parquet(self.path)
+        else:
+            raise FileExistsError('Extension must be parquet or csv.')
+
+        return self._clean_data(df)
+
+
+
+    def _clean_data(self, df) : 
+        df = self.__change_columns_names__(df)
+        df = self.__select_columns__(df, cf.COLS_TO_KEEP)
+        #df = self.__remove_accents__(df)
+        return df
+
     
-    #Return self nothing else to do here    
-    def fit( self, X, y = None ):
-        return self 
-    
-    #Method that describes what we need this transformer to do
-    def transform( self, X, y = None ):
-        return X[ self._feature_names ] 
+
+    def __change_columns_names__(self, df):
+        new_df = df.copy()
+        new_df.columns = cf.NEW_COL_NAMES
+        return new_df
+
+
+    def __select_columns__(self, data, cols_to_keep) :
+        new_df = data.copy()
+        return new_df[cols_to_keep]
+
+
+
+    def __remove_accents__(self, df) :
+        new_df = df.copy()
+        for col in cf.CAT_FEAT :
+            new_df[col] = new_df[col].str.lower(
+            ).str.replace('[éèê]', 'e', regex=True
+            ).str.replace('[ô]', 'o', regex=True
+            ).str.replace('[û]', 'u', regex=True
+            ).str.replace('[à]', 'a', regex=True)
+        return new_df
+
+
+
+
+
+
+
+
+
+
+
+
+
