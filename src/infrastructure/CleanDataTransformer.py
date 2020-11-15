@@ -34,13 +34,14 @@ class CleanDataTransformer:
     def _clean_data(self, df) : 
         df = self.__change_columns_names__(df)
         df = self.__select_columns__(df, cf.COLS_TO_KEEP)
-        #df = self.__remove_accents__(df)
+        df = self.__remove_accents__(df)
         return df
 
     
 
     def __change_columns_names__(self, df):
         new_df = df.copy()
+        new_df = new_df[cf.COL_NAME_TRAIN]
         new_df.columns = cf.NEW_COL_NAMES
         return new_df
 
