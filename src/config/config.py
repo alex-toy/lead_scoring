@@ -120,6 +120,20 @@ NEW_COL_NAMES = [
     SOUH_REC_COPIE_LB
 ]
 
+COL_NAME_TRAIN = ['ID_CLIENT', 'ORIGINE_LEAD', 'SOURCE_LEAD', 'NIVEAU_LEAD',
+       'QUALITE_LEAD', 'CONTACT_PAR_MAIL', 'CONTACT_PAR_TELEPHONE',
+       'STATUT_ACTUEL', 'CONVERTI', 'NB_VISITES', 'DUREE_SUR_SITEWEB',
+       'NB_PAGES_VUES_PAR_VISITE', 'DERNIERE_ACTIVITE',
+       'DERNIERE_ACTIVITE_NOTABLE', 'PAYS', 'VILLE', 'SPECIALISATION', 'TAGS',
+       'INDEX_ACTIVITE', 'INDEX_PROFIL', 'SCORE_ACTIVITE', 'SCORE_PROFIL',
+       'ANNONCE_VUE', 'MAGAZINE', 'ARTICLE_JOURNAL', 'FORUM', 'JOURNAUX',
+       'PUB_DIGITALE', 'RECOMMANDATION',
+       'Comment avez-vous entendu parler de nous ?',
+       'Souhaites-tu recevoir plus d\'infos sur notre cours ?',
+       'Souhaites-tu recevoir des mises à jour sur nos programmes ?',
+       'Souhaites-tu recevoir des mises à jour par message privé ?',
+       'Souhaites-tu payer par chèque ?',
+       'Souhaites-tu recevoir une copie de notre livre blanc ?']
 
 import re
 
