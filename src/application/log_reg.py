@@ -29,16 +29,8 @@ from src.infrastructure.CustomerProcessor import CustomerProcessor
 from  src.domain.pipeline_transformer import pipeline_transformer
 
 
-
-if __name__ == '__main__':
+def log_reg_pipeline(X_train, y_train);
     
-    cp = CustomerProcessor(path=cf.FILE_DATA)
-    data = cp.load_cleaned_data()
-    X = data.drop(cf.TARGET, axis = 1)
-    y = data[cf.TARGET]
-    X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
-
-
     full_pipeline = pipeline_transformer()
 
 
@@ -48,8 +40,7 @@ if __name__ == '__main__':
     ])
     log_reg_pipeline.fit( X_train, y_train )
 
-
-    evaluate_model(log_reg_pipeline, X_train, X_test, y_train, y_test)
+    return log_reg_pipeline
 
 
 
