@@ -1,4 +1,5 @@
-import app.config.config as cf
+# -*- coding: UTF-8 -*-
+import src.config.config as cf
 import os
 from os import listdir
 from os.path import isfile, join
@@ -9,11 +10,9 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 from src.infrastructure.CleanDataTransformer import CleanDataTransformer
-from src.domain.pip_log_reg import log_reg_pipeline
-from src.domain.pip_knn import knneighboors_pipeline
-from src.domain.pip_rand_for import rand_for_pipeline
-from src.domain.pip_svc import svc_pipeline
-from src.domain.pip_gb import gb_pipeline
+from src.domain.log_reg_pipeline import log_reg_pipeline
+from src.domain.rand_for_pipeline import rand_for_pipeline
+from src.domain.gb_pipeline import gb_pipeline
 
 import logging
 
@@ -36,9 +35,9 @@ def model_prediction(file_path, model_file, save_file) :
         new_X[cf.PRED_COL_NAME] = model.predict(data)
         return new_X
 
-    cp = CleanDataTransformer(path=file_path)
-    data = cp.load_cleaned_data()
-    raw_data = cp.load_raw_data()
+    cd = CleanDataTransformer(path=file_path)
+    data = cd.load_cleaned_data()
+    raw_data = cd.load_raw_data()
 
     preds = probability_predictions(model, data, raw_data)
     preds.to_csv(os.path.join(cf.OUTPUTS_DIR, save_file))
@@ -93,7 +92,7 @@ def best_model() :
     models = sorted(models)
     precisions = np.array([float(t.split(':')[1]) for t in precisions])
     index_best_model = np.argmax(precisions)
-    best_model = models[index_best_model]
+    #best_model = models[index_best_model]
 
     output_files, model_dict = get_output_files()
 
@@ -122,13 +121,13 @@ def prediction_workflow() :
     logger = logging.getLogger('tcpserver')
 
     print('Put your file at the root.')
-    name_file = input('Name of the file to get predictions for (defaults to data.csv) : ')
-    if name_file == '' : name_file = 'data.csv'
+    name_file = input('Name of the file to get predictions for (defaults to data/data.csv) : ')
+    if name_file == '' : name_file = 'data/data.csv'
     
     file_path = os.path.join(os.path.os.getcwd(), name_file)
-    cp = CustomerProcessor(path=file_path)
-    data = cp.load_cleaned_data()
-    raw_data = cp.load_raw_data()
+    cd =  CleanDataTransformer(path=file_path)
+    #data = cd.load_cleaned_data()
+    #raw_data = cd.load_raw_data()
 
     print('Choose strategy :')
     print('1 : choose among all models')
