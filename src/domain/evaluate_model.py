@@ -9,7 +9,6 @@ from sklearn.linear_model import LogisticRegression, SGDClassifier
 from sklearn.model_selection import train_test_split, GridSearchCV, KFold
 from sklearn.metrics import confusion_matrix, accuracy_score, precision_score
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.neighbors import KNeighborsRegressor, KNeighborsClassifier
 from sklearn import svm, datasets
 
@@ -21,49 +20,38 @@ from src.infrastructure.CustomerProcessor import CustomerProcessor
 from src.domain.CategoricalTransformer import CategoricalTransformer
 from src.domain.NumericalTransformer import NumericalTransformer
 from src.domain.FeatureSelector import FeatureSelector
-from src.domain.evaluate_model import evaluate_model
+
+from joblib import dump, load
+
+import app.config.config as cf
+
+import os
 
 
-import src.config.config as cf
-from src.infrastructure.CustomerProcessor import CustomerProcessor
-from  src.domain.pipeline_transformer import pipeline_transformer
+def display_model_performance(y_test, y_pred, model_name) :
+    accuracy = accuracy_score(y_test, y_pred)
+    cm = confusion_matrix(y_test, y_pred)
+
+    file_path = os.path.join(os.path.os.getcwd(), cf.PERF_FILE)
+
+    acc = str(round(accuracy_score(y_test, y_pred)*100, 2))
+    prec = str(round(cm[1][1]/sum(y_test)*100, 2))
+
+    with open(file_path, 'a') as perf_file:
+        perf_file.write(model_name + ':' + prec + ';')
+
+    print(cm)
+    print('Accuracy : ' + acc + '%')
+    print('Precision : ' + prec + '%')
 
 
 
-def gb_pipeline(X_train, y_train) :
+
+def evaluate_model(model, X_train, X_test, y_train, y_test, model_name='model.joblib') :
+
+    model = model(X_train, y_train)
+    dump(model, os.path.join(cf.OUTPUTS_MODELS_DIR, model_name)) 
+    y_pred = model.predict( X_test )
+
+    display_model_performance(y_test, y_pred, model_name) 
     
-    full_pipeline = pipeline_transformer()
-
-    gb_pipeline = Pipeline( steps = [ 
-        ( 'full_pipeline', full_pipeline),
-        ( 'gb', GradientBoostingClassifier() ) 
-    ])
-    gb_pipeline.fit( X_train, y_train )
-
-    return gb_pipeline
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
