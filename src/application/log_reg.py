@@ -17,15 +17,11 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 import src.config.config as cf
-from src.infrastructure.CustomerProcessor import CustomerProcessor
+from src.infrastructure.CleanDataTransformer import CleanDataTransformer
 from src.domain.CategoricalTransformer import CategoricalTransformer
 from src.domain.NumericalTransformer import NumericalTransformer
 from src.domain.FeatureSelector import FeatureSelector
 from src.domain.evaluate_model import evaluate_model
-
-
-import src.config.config as cf
-from src.infrastructure.CustomerProcessor import CustomerProcessor
 from  src.domain.pipeline_transformer import pipeline_transformer
 
 
