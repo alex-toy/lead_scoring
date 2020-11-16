@@ -16,20 +16,16 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 import src.config.config as cf
-from src.infrastructure.CustomerProcessor import CustomerProcessor
+from src.infrastructure.CleanDataTransformer import CleanDataTransformer
 from src.domain.CategoricalTransformer import CategoricalTransformer
 from src.domain.NumericalTransformer import NumericalTransformer
 from src.domain.FeatureSelector import FeatureSelector
-
 from joblib import dump, load
-
-import app.config.config as cf
-
 import os
 
 
 def display_model_performance(y_test, y_pred, model_name) :
-    accuracy = accuracy_score(y_test, y_pred)
+    #accuracy = accuracy_score(y_test, y_pred)
     cm = confusion_matrix(y_test, y_pred)
 
     file_path = os.path.join(os.path.os.getcwd(), cf.PERF_FILE)

@@ -3,11 +3,9 @@ import os
 
 from sklearn.model_selection import train_test_split
 
-from src.domain.pip_log_reg import log_reg_pipeline
-from src.domain.pip_knn import knneighboors_pipeline
-from src.domain.pip_rand_for import rand_for_pipeline
-from src.domain.pip_svc import svc_pipeline
-from src.domain.pip_gb import gb_pipeline
+from src.domain.log_reg_pipeline import log_reg_pipeline
+from src.domain.rand_for_pipeline import rand_for_pipeline
+from src.domain.gb_pipeline import gb_pipeline
 
 from src.domain.evaluate_model import evaluate_model
 

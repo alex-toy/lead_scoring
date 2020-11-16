@@ -13,13 +13,26 @@ class CleanDataTransformer:
     """
     cleans customer data from raw file
     """
-    def __init__(self, path="") :
+    def __init__(self, path=""):
         self.path = path
 
 
-    def load_cleaned_data(self) :
+    def load_raw_data(self):
         
-        name, extension = os.path.splitext(self.path)
+        _ , extension = os.path.splitext(self.path)
+        if extension == '.csv':
+            df = pd.read_csv(self.path, sep=';') 
+        elif extension == '.parquet':
+            df = pd.read_parquet(self.path)
+        else:
+            raise FileExistsError('Extension must be parquet or csv.')
+
+        return df
+
+
+    def load_cleaned_data(self):
+        
+        _ , extension = os.path.splitext(self.path)
         if extension == '.csv':
             df = pd.read_csv(self.path, sep=';') 
         elif extension == '.parquet':
@@ -31,7 +44,7 @@ class CleanDataTransformer:
 
 
 
-    def _clean_data(self, df) : 
+    def _clean_data(self, df): 
         df = self.__change_columns_names__(df)
         df = self.__select_columns__(df, cf.COLS_TO_KEEP)
         df = self.__remove_accents__(df)
