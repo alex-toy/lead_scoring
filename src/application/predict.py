@@ -8,7 +8,7 @@ import pandas as pd
 
 from sklearn.model_selection import train_test_split
 
-from src.infrastructure.CustomerProcessor import CustomerProcessor
+from src.infrastructure.CleanDataTransformer import CleanDataTransformer
 from src.domain.pip_log_reg import log_reg_pipeline
 from src.domain.pip_knn import knneighboors_pipeline
 from src.domain.pip_rand_for import rand_for_pipeline
@@ -36,7 +36,7 @@ def model_prediction(file_path, model_file, save_file) :
         new_X[cf.PRED_COL_NAME] = model.predict(data)
         return new_X
 
-    cp = CustomerProcessor(path=file_path)
+    cp = CleanDataTransformer(path=file_path)
     data = cp.load_cleaned_data()
     raw_data = cp.load_raw_data()
 

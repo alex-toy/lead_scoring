@@ -1,17 +1,17 @@
-import app.config.config as cf
+import src.config.config as cf
 import os
 
 from sklearn.model_selection import train_test_split
 
-from app.domain.pip_log_reg import log_reg_pipeline
-from app.domain.pip_knn import knneighboors_pipeline
-from app.domain.pip_rand_for import rand_for_pipeline
-from app.domain.pip_svc import svc_pipeline
-from app.domain.pip_gb import gb_pipeline
+from src.domain.pip_log_reg import log_reg_pipeline
+from src.domain.pip_knn import knneighboors_pipeline
+from src.domain.pip_rand_for import rand_for_pipeline
+from src.domain.pip_svc import svc_pipeline
+from src.domain.pip_gb import gb_pipeline
 
-from app.domain.evaluate_model import evaluate_model
+from src.domain.evaluate_model import evaluate_model
 
-from app.infrastructure.CustomerProcessor import CustomerProcessor
+from src.infrastructure.CleanDataTransformer import CleanDataTransformer
 
 import logging
 
@@ -29,7 +29,7 @@ if __name__ == '__main__':
 
 
     logger.info('Run play_file: %s', 'loading data', extra=d)
-    cp = CustomerProcessor(path=cf.FILE_DATA)
+    cp = CleanDataTransformer(path=cf.FILE_DATA)
     data = cp.load_cleaned_data()
     X = data.drop(cf.TARGET, axis = 1)
     y = data[cf.TARGET]
