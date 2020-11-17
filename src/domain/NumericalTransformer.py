@@ -20,7 +20,8 @@ class NumericalTransformer(BaseEstimator, TransformerMixin):
     #Custom transform that replace ouliers by the maximum value 
     def transform(self, X , y = None ):
         logger.info('Run tranform : %s', 'remove outlier for numerical feature', extra=d)
-        new_X =X
+        
+        new_X = X.copy()
 
         #remove outliers
         new_X.loc[new_X [cf.NB_VISITES] > 50,[cf.NB_VISITES]] = 50 

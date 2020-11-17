@@ -32,7 +32,7 @@ def log_reg_pipeline(X_train, y_train):
 
     log_reg_pipeline = Pipeline( steps = [ 
         ( 'full_pipeline', full_pipeline),
-        ( 'log_reg', LogisticRegression() ) 
+        ( 'log_reg', LogisticRegression(max_iter=1000) ) 
     ])
     log_reg_pipeline.fit( X_train, y_train )
 

@@ -99,7 +99,7 @@ def best_model() :
     chosen_model = model_dict[int(index_best_model)+1]
     chosen_output_file = output_files[int(index_best_model)+1]
 
-    print('best model is ' + chosen_model + ' with precison : ' + str(max(precisions)))
+    print('Best model is ' + chosen_model + ' with precision ' + str(max(precisions)) + '%')
 
     return chosen_model, chosen_output_file
 
@@ -120,11 +120,13 @@ def prediction_workflow() :
     d = {'clientip': '192.168.0.1', 'user': 'fbloggs'}
     logger = logging.getLogger('tcpserver')
 
-    print('Put your file at the root.')
-    name_file = input('Name of the file to get predictions for (defaults to data/data.csv) : ')
-    if name_file == '' : name_file = 'data/data.csv'
+    print('Put your file in the predict folder.')
+    name_file = input('Name of the file to get predictions for (defaults to predict/data.csv) : ')
+    if name_file == '' : name_file = 'data.csv'
     
-    file_path = os.path.join(os.path.os.getcwd(), name_file)
+    temp = os.path.join('predict', name_file)
+    file_path = os.path.join(os.path.os.getcwd(), temp)
+    print(file_path)
     cd =  CleanDataTransformer(path=file_path)
     #data = cd.load_cleaned_data()
     #raw_data = cd.load_raw_data()

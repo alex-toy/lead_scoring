@@ -14,7 +14,7 @@ from src.infrastructure.CleanDataTransformer import CleanDataTransformer
 import logging
 
 
-if __name__ == '__main__':
+def train_model() :
     """
     Trains and evaluates models thanks to provided pipelines
     Gives the user information to be able to choose among the models    
