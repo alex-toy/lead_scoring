@@ -189,12 +189,43 @@ dev = ["numpy", "codecov", "pytest", "pytest-cov"]
 sphinx = ["matplotlib", "pandas", "sphinx", "sphinx-gallery", "pillow"]
 
 [[package]]
+name = "eli5"
+version = "0.10.1"
+description = "Debug machine learning classifiers and explain their predictions"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+attrs = ">16.0.0"
+graphviz = "*"
+jinja2 = "*"
+numpy = ">=1.9.0"
+scikit-learn = ">=0.18"
+scipy = "*"
+six = "*"
+tabulate = ">=0.7.7"
+
+[[package]]
 name = "entrypoints"
 version = "0.3"
 description = "Discover and load entry points from installed packages."
 category = "main"
 optional = false
 python-versions = ">=2.7"
+
+[[package]]
+name = "graphviz"
+version = "0.15"
+description = "Simple Python interface for Graphviz"
+category = "main"
+optional = false
+python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*"
+
+[package.extras]
+dev = ["tox (>=3)", "flake8", "pep8-naming", "wheel", "twine"]
+docs = ["sphinx (>=1.8)", "sphinx-rtd-theme"]
+test = ["mock (>=3)", "pytest (>=4)", "pytest-mock (>=2)", "pytest-cov"]
 
 [[package]]
 name = "htmlmin"
@@ -764,6 +795,23 @@ numpy = ">=1.4"
 six = "*"
 
 [[package]]
+name = "pdpbox"
+version = "0.2.0"
+description = "python partial dependence plot toolbox"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+joblib = "*"
+matplotlib = ">=2.1.2"
+numpy = "*"
+pandas = "*"
+psutil = "*"
+scikit-learn = "*"
+scipy = "*"
+
+[[package]]
 name = "pexpect"
 version = "4.8.0"
 description = "Pexpect allows easy control of interactive console applications."
@@ -807,6 +855,18 @@ optional = false
 python-versions = ">=3.6"
 
 [[package]]
+name = "plotly"
+version = "4.12.0"
+description = "An open-source, interactive data visualization library for Python"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+retrying = ">=1.3.3"
+six = "*"
+
+[[package]]
 name = "prometheus-client"
 version = "0.8.0"
 description = "Python client for the Prometheus monitoring system."
@@ -827,6 +887,17 @@ python-versions = ">=3.6.1"
 
 [package.dependencies]
 wcwidth = "*"
+
+[[package]]
+name = "psutil"
+version = "5.7.3"
+description = "Cross-platform lib for process and system monitoring in Python."
+category = "main"
+optional = false
+python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+
+[package.extras]
+test = ["ipaddress", "mock", "unittest2", "enum34", "pywin32", "wmi"]
 
 [[package]]
 name = "ptyprocess"
@@ -854,6 +925,20 @@ python-versions = ">=3.5"
 
 [package.dependencies]
 numpy = ">=1.14"
+
+[[package]]
+name = "pycebox"
+version = "0.0.1"
+description = "The Python Individual Conditional Expectation Toolbox"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+matplotlib = "*"
+numpy = "*"
+pandas = "*"
+six = "*"
 
 [[package]]
 name = "pycparser"
@@ -1017,6 +1102,17 @@ security = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)"]
 socks = ["PySocks (>=1.5.6,<1.5.7 || >1.5.7)", "win-inet-pton"]
 
 [[package]]
+name = "retrying"
+version = "1.3.3"
+description = "Retrying"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+six = ">=1.7.0"
+
+[[package]]
 name = "scikit-learn"
 version = "0.23.2"
 description = "A set of python modules for machine learning and data mining"
@@ -1067,12 +1163,58 @@ optional = false
 python-versions = "*"
 
 [[package]]
+name = "shap"
+version = "0.37.0"
+description = "A unified approach to explain the output of any machine learning model."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+numba = "*"
+numpy = "*"
+pandas = "*"
+scikit-learn = "*"
+scipy = "*"
+slicer = "0.0.3"
+tqdm = ">4.25.0"
+
+[package.extras]
+all = ["xgboost", "pytest-mpl", "sphinx", "sphinx-rtd-theme", "pyspark", "catboost", "pytest", "lime", "numpydoc", "lightgbm", "ipython", "nbsphinx", "matplotlib", "pytest-cov"]
+docs = ["matplotlib", "ipython", "numpydoc", "sphinx-rtd-theme", "sphinx", "nbsphinx"]
+others = ["lime"]
+plots = ["matplotlib", "ipython"]
+test = ["pytest", "pytest-mpl", "pytest-cov", "xgboost", "lightgbm", "catboost", "pyspark"]
+
+[[package]]
 name = "six"
 version = "1.15.0"
 description = "Python 2 and 3 compatibility utilities"
 category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
+
+[[package]]
+name = "skope-rules"
+version = "1.0.1"
+description = "Machine Learning with Interpretable Rules"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+numpy = ">=1.10.4"
+pandas = ">=0.18.1"
+scikit-learn = ">=0.17.1"
+scipy = ">=0.17.0"
+
+[[package]]
+name = "slicer"
+version = "0.0.3"
+description = "A small package for big slicing."
+category = "main"
+optional = false
+python-versions = ">=3.6"
 
 [[package]]
 name = "statsmodels"
@@ -1092,6 +1234,17 @@ scipy = ">=1.1"
 build = ["cython (>=0.29)"]
 develop = ["cython (>=0.29)"]
 docs = ["sphinx", "nbconvert", "jupyter-client", "ipykernel", "matplotlib", "nbformat", "numpydoc", "pandas-datareader"]
+
+[[package]]
+name = "tabulate"
+version = "0.8.7"
+description = "Pretty-print tabular data"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.extras]
+widechars = ["wcwidth"]
 
 [[package]]
 name = "tangled-up-in-unicode"
@@ -1151,14 +1304,14 @@ python-versions = ">= 3.5"
 
 [[package]]
 name = "tqdm"
-version = "4.51.0"
+version = "4.52.0"
 description = "Fast, Extensible Progress Meter"
 category = "main"
 optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*"
 
 [package.extras]
-dev = ["py-make (>=0.1.0)", "twine", "argopt", "pydoc-markdown"]
+dev = ["py-make (>=0.1.0)", "twine", "argopt", "pydoc-markdown", "wheel"]
 
 [[package]]
 name = "traitlets"
@@ -1173,6 +1326,14 @@ ipython-genutils = "*"
 
 [package.extras]
 test = ["pytest"]
+
+[[package]]
+name = "treeinterpreter"
+version = "0.2.2"
+description = "Package for interpreting scikit-learn's decision tree and random forest predictions."
+category = "main"
+optional = false
+python-versions = "*"
 
 [[package]]
 name = "urllib3"
@@ -1250,7 +1411,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "7ad721c2676b5d580a590c99726ad2199142280deb782ce07ae99c9e6cc57221"
+content-hash = "dbf7cd3c9a76122d29b7ae05290c7f6de97bd32061c57f6cd35460fb140e429a"
 
 [metadata.files]
 appnope = [
@@ -1370,9 +1531,17 @@ download = [
     {file = "download-0.3.5-py3-none-any.whl", hash = "sha256:8b2f7695745254b0bebdfb789d426b35768366054538b4f8e7f9377dd5a9499d"},
     {file = "download-0.3.5.tar.gz", hash = "sha256:884a885475b3cdbec0aa277e41643995c3394a1e064a0816f53fffae4a382130"},
 ]
+eli5 = [
+    {file = "eli5-0.10.1-py2.py3-none-any.whl", hash = "sha256:530da14b206a2571e7a1ef895c5798b8f99ddd979d6a2976722777d41884a628"},
+    {file = "eli5-0.10.1.tar.gz", hash = "sha256:62f4b5d6a55ff3299e830144112144eafbd275f86eb7cd560c1a229cd2be2a2b"},
+]
 entrypoints = [
     {file = "entrypoints-0.3-py2.py3-none-any.whl", hash = "sha256:589f874b313739ad35be6e0cd7efde2a4e9b6fea91edcc34e58ecbb8dbe56d19"},
     {file = "entrypoints-0.3.tar.gz", hash = "sha256:c70dd71abe5a8c85e55e12c19bd91ccfeec11a6e99044204511f9ed547d48451"},
+]
+graphviz = [
+    {file = "graphviz-0.15-py2.py3-none-any.whl", hash = "sha256:403b55553b235875fa521023a06d9c29b46f3a956f960d4e0a5b956bca9eb9ce"},
+    {file = "graphviz-0.15.zip", hash = "sha256:2b85f105024e229ec330fe5067abbe9aa0d7708921a585ecc2bf56000bf5e027"},
 ]
 htmlmin = [
     {file = "htmlmin-0.1.12.tar.gz", hash = "sha256:50c1ef4630374a5d723900096a961cff426dff46b48f34d194a81bbe14eca178"},
@@ -1713,6 +1882,10 @@ patsy = [
     {file = "patsy-0.5.1-py2.py3-none-any.whl", hash = "sha256:5465be1c0e670c3a965355ec09e9a502bf2c4cbe4875e8528b0221190a8a5d40"},
     {file = "patsy-0.5.1.tar.gz", hash = "sha256:f115cec4201e1465cd58b9866b0b0e7b941caafec129869057405bfe5b5e3991"},
 ]
+pdpbox = [
+    {file = "PDPbox-0.2.0-py2-none-any.whl", hash = "sha256:def6840f5a3ada5d4269aced1e0b1244c417a471cf3ed87bf4c4f60ee4f64d2b"},
+    {file = "PDPbox-0.2.0.tar.gz", hash = "sha256:2eae5a20004657f48ddd5b00f2fb74dd54f9de891c25ec7935a8fd471f9186f9"},
+]
 pexpect = [
     {file = "pexpect-4.8.0-py2.py3-none-any.whl", hash = "sha256:0b48a55dcb3c05f3329815901ea4fc1537514d6ba867a152b581d69ae3710937"},
     {file = "pexpect-4.8.0.tar.gz", hash = "sha256:fc65a43959d153d0114afe13997d439c22823a27cefceb5ff35c2178c6784c0c"},
@@ -1754,6 +1927,10 @@ pillow = [
     {file = "Pillow-8.0.1-pp37-pypy37_pp73-win32.whl", hash = "sha256:8de332053707c80963b589b22f8e0229f1be1f3ca862a932c1bcd48dafb18dd8"},
     {file = "Pillow-8.0.1.tar.gz", hash = "sha256:11c5c6e9b02c9dac08af04f093eb5a2f84857df70a7d4a6a6ad461aca803fb9e"},
 ]
+plotly = [
+    {file = "plotly-4.12.0-py2.py3-none-any.whl", hash = "sha256:c50babbb4f8ad12e2a4f004df5d80c1dbf10c38e9325b5ffb1146b383687ef52"},
+    {file = "plotly-4.12.0.tar.gz", hash = "sha256:9ec2c9f4cceac7c595ebb77c98cbeb6566a97bef777508584d9bb7d9bcb8854c"},
+]
 prometheus-client = [
     {file = "prometheus_client-0.8.0-py2.py3-none-any.whl", hash = "sha256:983c7ac4b47478720db338f1491ef67a100b474e3bc7dafcbaefb7d0b8f9b01c"},
     {file = "prometheus_client-0.8.0.tar.gz", hash = "sha256:c6e6b706833a6bd1fd51711299edee907857be10ece535126a158f911ee80915"},
@@ -1761,6 +1938,19 @@ prometheus-client = [
 prompt-toolkit = [
     {file = "prompt_toolkit-3.0.8-py3-none-any.whl", hash = "sha256:7debb9a521e0b1ee7d2fe96ee4bd60ef03c6492784de0547337ca4433e46aa63"},
     {file = "prompt_toolkit-3.0.8.tar.gz", hash = "sha256:25c95d2ac813909f813c93fde734b6e44406d1477a9faef7c915ff37d39c0a8c"},
+]
+psutil = [
+    {file = "psutil-5.7.3-cp27-none-win32.whl", hash = "sha256:1cd6a0c9fb35ece2ccf2d1dd733c1e165b342604c67454fd56a4c12e0a106787"},
+    {file = "psutil-5.7.3-cp27-none-win_amd64.whl", hash = "sha256:e02c31b2990dcd2431f4524b93491941df39f99619b0d312dfe1d4d530b08b4b"},
+    {file = "psutil-5.7.3-cp35-cp35m-win32.whl", hash = "sha256:56c85120fa173a5d2ad1d15a0c6e0ae62b388bfb956bb036ac231fbdaf9e4c22"},
+    {file = "psutil-5.7.3-cp35-cp35m-win_amd64.whl", hash = "sha256:fa38ac15dbf161ab1e941ff4ce39abd64b53fec5ddf60c23290daed2bc7d1157"},
+    {file = "psutil-5.7.3-cp36-cp36m-win32.whl", hash = "sha256:01bc82813fbc3ea304914581954979e637bcc7084e59ac904d870d6eb8bb2bc7"},
+    {file = "psutil-5.7.3-cp36-cp36m-win_amd64.whl", hash = "sha256:6a3e1fd2800ca45083d976b5478a2402dd62afdfb719b30ca46cd28bb25a2eb4"},
+    {file = "psutil-5.7.3-cp37-cp37m-win32.whl", hash = "sha256:fbcac492cb082fa38d88587d75feb90785d05d7e12d4565cbf1ecc727aff71b7"},
+    {file = "psutil-5.7.3-cp37-cp37m-win_amd64.whl", hash = "sha256:5d9106ff5ec2712e2f659ebbd112967f44e7d33f40ba40530c485cc5904360b8"},
+    {file = "psutil-5.7.3-cp38-cp38-win32.whl", hash = "sha256:ade6af32eb80a536eff162d799e31b7ef92ddcda707c27bbd077238065018df4"},
+    {file = "psutil-5.7.3-cp38-cp38-win_amd64.whl", hash = "sha256:2cb55ef9591b03ef0104bedf67cc4edb38a3edf015cf8cf24007b99cb8497542"},
+    {file = "psutil-5.7.3.tar.gz", hash = "sha256:af73f7bcebdc538eda9cc81d19db1db7bf26f103f91081d780bbacfcb620dee2"},
 ]
 ptyprocess = [
     {file = "ptyprocess-0.6.0-py2.py3-none-any.whl", hash = "sha256:d7cc528d76e76342423ca640335bd3633420dc1366f258cb31d05e865ef5ca1f"},
@@ -1796,6 +1986,9 @@ pyarrow = [
     {file = "pyarrow-2.0.0-cp38-cp38-manylinux2014_x86_64.whl", hash = "sha256:dd661b6598ce566c6f41d31cc1fc4482308613c2c0c808bd8db33b0643192f84"},
     {file = "pyarrow-2.0.0-cp38-cp38-win_amd64.whl", hash = "sha256:14b02a629986c25e045f81771799e07a8bb3f339898c111314066436769a3dd4"},
     {file = "pyarrow-2.0.0.tar.gz", hash = "sha256:b5e6cd217457e8febcc98a6c279b96f72d5c31a24cd2bffd8d3b2da701d2025c"},
+]
+pycebox = [
+    {file = "pycebox-0.0.1.tar.gz", hash = "sha256:10c48340b9e69699f9df8f18fbdc5af85b748177a9173a1f14ad0f56c3fcdfe7"},
 ]
 pycparser = [
     {file = "pycparser-2.20-py2.py3-none-any.whl", hash = "sha256:7582ad22678f0fcd81102833f60ef8d0e57288b6b5fb00323d101be910e35705"},
@@ -1934,6 +2127,9 @@ requests = [
     {file = "requests-2.25.0-py2.py3-none-any.whl", hash = "sha256:e786fa28d8c9154e6a4de5d46a1d921b8749f8b74e28bde23768e5e16eece998"},
     {file = "requests-2.25.0.tar.gz", hash = "sha256:7f1a0b932f4a60a1a65caa4263921bb7d9ee911957e0ae4a23a6dd08185ad5f8"},
 ]
+retrying = [
+    {file = "retrying-1.3.3.tar.gz", hash = "sha256:08c039560a6da2fe4f2c426d0766e284d3b736e355f8dd24b37367b0bb41973b"},
+]
 scikit-learn = [
     {file = "scikit-learn-0.23.2.tar.gz", hash = "sha256:20766f515e6cd6f954554387dfae705d93c7b544ec0e6c6a5d8e006f6f7ef480"},
     {file = "scikit_learn-0.23.2-cp36-cp36m-macosx_10_9_x86_64.whl", hash = "sha256:98508723f44c61896a4e15894b2016762a55555fbf09365a0bb1870ecbd442de"},
@@ -1987,9 +2183,22 @@ send2trash = [
     {file = "Send2Trash-1.5.0-py3-none-any.whl", hash = "sha256:f1691922577b6fa12821234aeb57599d887c4900b9ca537948d2dac34aea888b"},
     {file = "Send2Trash-1.5.0.tar.gz", hash = "sha256:60001cc07d707fe247c94f74ca6ac0d3255aabcb930529690897ca2a39db28b2"},
 ]
+shap = [
+    {file = "shap-0.37.0-cp36-cp36m-win_amd64.whl", hash = "sha256:022c8550214ba589af6771bc36df9b30e323f3f9b11b4fbe2dd3a3de853c99e0"},
+    {file = "shap-0.37.0-cp37-cp37m-win_amd64.whl", hash = "sha256:6a323bd726f8616cad6c1f3156208ce620911994a4fcc1886a662a5f299fdc84"},
+    {file = "shap-0.37.0-cp38-cp38-win_amd64.whl", hash = "sha256:b173696e1b7f25f74446e9e70900f90df5697ae1ef967f9b3aa5b30db533027a"},
+    {file = "shap-0.37.0.tar.gz", hash = "sha256:dca8127016988d2b64895e8c2afcf8ebdef152e8e1e8bfe84201d41c89c09b0f"},
+]
 six = [
     {file = "six-1.15.0-py2.py3-none-any.whl", hash = "sha256:8b74bedcbbbaca38ff6d7491d76f2b06b3592611af620f8426e82dddb04a5ced"},
     {file = "six-1.15.0.tar.gz", hash = "sha256:30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"},
+]
+skope-rules = [
+    {file = "skope_rules-1.0.1-py3-none-any.whl", hash = "sha256:c03565989869f26262dc4299b49aca6ae297cbcfccf62eed8d69d5c0c0605798"},
+]
+slicer = [
+    {file = "slicer-0.0.3-py3-none-any.whl", hash = "sha256:027e87357785c1031cbeb8447a3b8c324efbb9fa184a678a4f4d9e182a62002d"},
+    {file = "slicer-0.0.3.tar.gz", hash = "sha256:c82500e0120e648dcd541f785e1c04a35fa9cd61baed5cf3f83e6b6b21667114"},
 ]
 statsmodels = [
     {file = "statsmodels-0.12.1-cp36-cp36m-macosx_10_13_x86_64.whl", hash = "sha256:3b482ab9759b89cc1c4777b71c1ccf272e868a7551fc6b74da300557407d8379"},
@@ -2007,6 +2216,10 @@ statsmodels = [
     {file = "statsmodels-0.12.1-cp38-none-win32.whl", hash = "sha256:a652d8bfb4ec430b706a69e3fcbdac1cdf930823e3f9b8468e3e179d47097bbb"},
     {file = "statsmodels-0.12.1-cp38-none-win_amd64.whl", hash = "sha256:74c6c863d6f8a1f021d42f965b1b97eeea05293d3b18e3690c46eac0cf6d64d9"},
     {file = "statsmodels-0.12.1.tar.gz", hash = "sha256:a271b4ccec190148dccda25f0cbdcbf871f408fc1394a10a7dc1af4a62b91c8e"},
+]
+tabulate = [
+    {file = "tabulate-0.8.7-py3-none-any.whl", hash = "sha256:ac64cb76d53b1231d364babcd72abbb16855adac7de6665122f97b593f1eb2ba"},
+    {file = "tabulate-0.8.7.tar.gz", hash = "sha256:db2723a20d04bcda8522165c73eea7c300eda74e0ce852d9022e0159d7895007"},
 ]
 tangled-up-in-unicode = [
     {file = "tangled_up_in_unicode-0.0.6-py3-none-any.whl", hash = "sha256:5cac4ecf3cf1e76a043bc9ce7b583649324d39bef275aa30e01611a29745b9f8"},
@@ -2072,12 +2285,16 @@ tornado = [
     {file = "tornado-6.1.tar.gz", hash = "sha256:33c6e81d7bd55b468d2e793517c909b139960b6c790a60b7991b9b6b76fb9791"},
 ]
 tqdm = [
-    {file = "tqdm-4.51.0-py2.py3-none-any.whl", hash = "sha256:9ad44aaf0fc3697c06f6e05c7cf025dd66bc7bcb7613c66d85f4464c47ac8fad"},
-    {file = "tqdm-4.51.0.tar.gz", hash = "sha256:ef54779f1c09f346b2b5a8e5c61f96fbcb639929e640e59f8cf810794f406432"},
+    {file = "tqdm-4.52.0-py2.py3-none-any.whl", hash = "sha256:80d9d5165d678dbd027dd102dfb99f71bf05f333b61fb761dbba13b4ab719ead"},
+    {file = "tqdm-4.52.0.tar.gz", hash = "sha256:18d6a615aedd09ec8456d9524489dab330af4bd5c2a14a76eb3f9a0e14471afe"},
 ]
 traitlets = [
     {file = "traitlets-5.0.5-py3-none-any.whl", hash = "sha256:69ff3f9d5351f31a7ad80443c2674b7099df13cc41fc5fa6e2f6d3b0330b0426"},
     {file = "traitlets-5.0.5.tar.gz", hash = "sha256:178f4ce988f69189f7e523337a3e11d91c786ded9360174a3d9ca83e79bc5396"},
+]
+treeinterpreter = [
+    {file = "treeinterpreter-0.2.2-py2.py3-none-any.whl", hash = "sha256:a23bc89a3a7bd2ff8ec7973bb7947c7a5a4b74948f0613acfeac762b83f08555"},
+    {file = "treeinterpreter-0.2.2.zip", hash = "sha256:86266c43a82acc79ae7bf1bac5f8c30990e6492487a9727811346dd1f62aa074"},
 ]
 urllib3 = [
     {file = "urllib3-1.26.2-py2.py3-none-any.whl", hash = "sha256:d8ff90d979214d7b4f8ce956e80f4028fc6860e4431f731ea4a8c08f23f99473"},
