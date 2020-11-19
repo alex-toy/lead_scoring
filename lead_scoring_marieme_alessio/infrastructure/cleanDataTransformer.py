@@ -5,7 +5,7 @@ import pandas as pd
 import os
 import re
 
-import src.config.config as cf
+import lead_scoring_marieme_alessio.config.config as cf
 
 
  

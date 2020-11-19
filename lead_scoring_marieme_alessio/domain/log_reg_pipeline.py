@@ -16,13 +16,13 @@ from sklearn import svm, datasets
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-import src.config.config as cf
-from src.infrastructure.CleanDataTransformer import CleanDataTransformer
-from src.domain.CategoricalTransformer import CategoricalTransformer
-from src.domain.NumericalTransformer import NumericalTransformer
-from src.domain.FeatureSelector import FeatureSelector
-from src.domain.evaluate_model import evaluate_model
-from  src.domain.pipeline_transformer import pipeline_transformer
+import lead_scoring_marieme_alessio.config.config as cf
+from lead_scoring_marieme_alessio.infrastructure.cleanDataTransformer import CleanDataTransformer
+from lead_scoring_marieme_alessio.domain.categoricalTransformer import CategoricalTransformer
+from lead_scoring_marieme_alessio.domain.numericalTransformer import NumericalTransformer
+from lead_scoring_marieme_alessio.domain.featureSelector import FeatureSelector
+from lead_scoring_marieme_alessio.domain.evaluate_model import evaluate_model
+from  lead_scoring_marieme_alessio.domain.pipeline_transformer import pipeline_transformer
 
 
 def log_reg_pipeline(X_train, y_train):

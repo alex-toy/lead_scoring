@@ -3,13 +3,13 @@ import os
 
 from sklearn.model_selection import train_test_split
 
-from src.domain.log_reg_pipeline import log_reg_pipeline
-from src.domain.rand_for_pipeline import rand_for_pipeline
-from src.domain.gb_pipeline import gb_pipeline
+from lead_scoring_marieme_alessio.domain.log_reg_pipeline import log_reg_pipeline
+from lead_scoring_marieme_alessio.domain.rand_for_pipeline import rand_for_pipeline
+from lead_scoring_marieme_alessio.domain.gb_pipeline import gb_pipeline
 
-from src.domain.evaluate_model import evaluate_model
+from lead_scoring_marieme_alessio.domain.evaluate_model import evaluate_model
 
-from src.infrastructure.CleanDataTransformer import CleanDataTransformer
+from lead_scoring_marieme_alessio.infrastructure.cleanDataTransformer import CleanDataTransformer
 
 import logging
 

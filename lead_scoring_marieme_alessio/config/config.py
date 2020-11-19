@@ -9,7 +9,7 @@ FILE_DATA = os.path.join(DATA_DIR, NAME_FILE)
 OUTPUTS_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../output'))
 OUTPUTS_MODELS_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../models'))
 
-PERF_FILE = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../src/domain/perf.txt'))
+PERF_FILE = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../lead_scoring_marieme_alessio/domain/perf.txt'))
 
 
 _SAVED_FILENAME = '_processed_data.csv'

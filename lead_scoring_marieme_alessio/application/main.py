@@ -8,8 +8,8 @@ import numpy as np
 import pandas as pd
 
 
-from src.application.train_model import train_model
-from src.application.predict import prediction_workflow
+from lead_scoring_marieme_alessio.application.train_model import train_model
+from lead_scoring_marieme_alessio.application.predict import prediction_workflow
 
 
 if __name__ == '__main__':

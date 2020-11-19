@@ -1,5 +1,5 @@
 # -*- coding: UTF-8 -*-
-import src.config.config as cf
+import lead_scoring_marieme_alessio.config.config as cf
 import os
 from os import listdir
 from os.path import isfile, join
@@ -9,10 +9,10 @@ import pandas as pd
 
 from sklearn.model_selection import train_test_split
 
-from src.infrastructure.CleanDataTransformer import CleanDataTransformer
-from src.domain.log_reg_pipeline import log_reg_pipeline
-from src.domain.rand_for_pipeline import rand_for_pipeline
-from src.domain.gb_pipeline import gb_pipeline
+from lead_scoring_marieme_alessio.infrastructure.cleanDataTransformer import CleanDataTransformer
+from lead_scoring_marieme_alessio.domain.log_reg_pipeline import log_reg_pipeline
+from lead_scoring_marieme_alessio.domain.rand_for_pipeline import rand_for_pipeline
+from lead_scoring_marieme_alessio.domain.gb_pipeline import gb_pipeline
 
 import logging
 
