@@ -11,10 +11,10 @@ from sklearn.model_selection import train_test_split, GridSearchCV, KFold
 
 
 import lead_scoring_marieme_alessio.config.config as cf
-from lead_scoring_marieme_alessio.infrastructure.cleanDataTransformer import CleanDataTransformer
-from lead_scoring_marieme_alessio.domain.categoricalTransformer import CategoricalTransformer
-from lead_scoring_marieme_alessio.domain.numericalTransformer import NumericalTransformer
-from lead_scoring_marieme_alessio.domain.featureSelector import FeatureSelector
+from lead_scoring_marieme_alessio.infrastructure.clean_data_transformer import CleanDataTransformer
+from lead_scoring_marieme_alessio.domain.categorical_transformer import CategoricalTransformer
+from lead_scoring_marieme_alessio.domain.numerical_transformer import NumericalTransformer
+from lead_scoring_marieme_alessio.domain.feature_selector import FeatureSelector
 
 
 

@@ -9,7 +9,7 @@ from lead_scoring_marieme_alessio.domain.gb_pipeline import gb_pipeline
 
 from lead_scoring_marieme_alessio.domain.evaluate_model import evaluate_model
 
-from lead_scoring_marieme_alessio.infrastructure.cleanDataTransformer import CleanDataTransformer
+from lead_scoring_marieme_alessio.infrastructure.clean_data_transformer import CleanDataTransformer
 
 import logging
 
