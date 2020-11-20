@@ -381,3 +381,93 @@ def plot_features_importance(data, importances, n_feat):
                 y=features[indices][:n_feat], palette='Blues_r')
     plt.title("Top {} Features Importance".format(n_feat))
     return plt.show()
+
+
+
+
+def compute_y_pred_from_query(X, rule):
+    '''Given a query (some rule using greater or lesser sign), return the predictions
+
+    Parameters
+    ----------
+    X : pd.DataFrame
+        dataframe on which query must be called
+    rule : str
+        query/rule used to compute the predictions
+
+    Returns
+    -------
+    score : np.ndarray
+        predictions in same order than X index
+
+    '''
+    score = np.zeros(X.shape[0])
+    X = X.reset_index(drop=True)
+    score[X.query(rule).index.tolist()] = 1
+    return score
+
+def compute_performances_from_y_pred(y_true, y_pred, index_name='default_index'):
+    '''Compute precision/recall performances given predictions and ground truth
+
+    Parameters
+    ----------
+    y_true : pd.Series/np.ndarray
+        ground truth from binary classification
+    y_pred : pd.Series/np.ndarray
+        predictions from binary classification
+    index_name.: str
+        index used for results dataframe, default is 'default_index'
+
+    Returns
+    -------
+    df : pd.DataFrame
+        dataframe with precision and recall of predictions
+
+    '''
+    df = pd.DataFrame(data=
+        {
+            'precision':[sum(y_true * y_pred)/sum(y_pred)],
+            'recall':[sum(y_true * y_pred)/sum(y_true)]
+        },
+        index=[index_name],
+        columns=['precision', 'recall']
+    )
+    return df
+
+def compute_train_test_query_performances(X_train, y_train, X_test, y_test, rule):
+    '''Compute precision/recall on both train and test given a rule
+
+    Parameters
+    ----------
+    X_train : pd.DataFrame
+        training dataset
+    y_train : pd.Series/np.ndarray
+        ground truth on training dataset (same order than X_train)
+    X_test : pd.DataFrame
+        testing dataset
+    y_test : pd.Series/np.ndarray
+        ground truth on testing dataset (same order than X_test)
+    rule : str
+        query/rule used to compute the predictions
+
+    Returns
+    -------
+    performances : pd.DataFrame
+        dataframe with precision and recall for both training and
+        testing predictions using the rule
+
+    '''
+    y_train_pred = compute_y_pred_from_query(X_train, rule)
+    y_test_pred = compute_y_pred_from_query(X_test, rule)
+    
+    performances = None
+    performances = pd.concat([
+        performances,
+        compute_performances_from_y_pred(y_train, y_train_pred, 'train_set')],
+        axis=0)
+    performances = pd.concat([
+        performances,
+        compute_performances_from_y_pred(y_test, y_test_pred, 'test_set')],
+        axis=0)
+            
+    return performances

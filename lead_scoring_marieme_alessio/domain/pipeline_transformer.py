@@ -27,8 +27,8 @@ def pipeline_transformer():
                 ( 'cat_selector', FeatureSelector(cf.CAT_FEAT) ),
                 ( 'cat transformer', CategoricalTransformer()),
                 ( 'cat_inputer', SimpleImputer(missing_values = np.nan,strategy='most_frequent') ),
-                ( 'one_hot_encoder', OneHotEncoder( sparse = True ) )
-        ])
+                ( 'one_hot_encoder', OneHotEncoder( sparse = False ) )
+    ])
     
     #Defining the steps in the numerical pipeline     
     numerical_pipeline = Pipeline( steps = [ 
@@ -36,7 +36,7 @@ def pipeline_transformer():
                 ( 'num_transformer', NumericalTransformer() ),
                 ( 'num_inputer', SimpleImputer(missing_values = np.nan,strategy='median') ),
                 ( 'std_scaler', StandardScaler() ) 
-        ])
+    ])
     
     enc = OrdinalEncoder()
     cats = [['Faible', 1], ['Moyen', 2], ['Elevé', 3]]
@@ -50,9 +50,11 @@ def pipeline_transformer():
 
     #Combining numerical and categorical piepline into one full big pipeline horizontally 
     #using FeatureUnion
-    union_pipeline = FeatureUnion( transformer_list = [ ( 'categorical_pipeline', categorical_pipeline ), 
-                                                ( 'numerical_pipeline', numerical_pipeline ),
-                                                ('ordinal_transformer', categorical_pipeline_ord) ] )
+    union_pipeline = FeatureUnion( transformer_list = [ 
+            ( 'categorical_pipeline', categorical_pipeline ), 
+            ( 'numerical_pipeline', numerical_pipeline ),
+            ('ordinal_transformer', categorical_pipeline_ord) 
+    ])
 
 
 
