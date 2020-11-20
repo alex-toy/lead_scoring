@@ -1,9 +1,0 @@
-Email ouvert
-Modifié
-SMS envoyé
-Page visitée sur le site    
-Conversation Chat
-A cliqué sur le lien dans le mail
-Email rejeté                 
-Désinscrit
-Email marqué comme Spam
