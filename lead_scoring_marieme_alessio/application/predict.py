@@ -128,8 +128,6 @@ def prediction_workflow() :
     file_path = os.path.join(os.path.os.getcwd(), temp)
     print(file_path)
     cd =  CleanDataTransformer(path=file_path)
-    #data = cd.load_cleaned_data()
-    #raw_data = cd.load_raw_data()
 
     print('Choose strategy :')
     print('1 : choose among all models')
@@ -146,6 +144,7 @@ def prediction_workflow() :
     model_prediction(file_path, chosen_model, chosen_output_file)
     pred_file_path = os.path.join(cf.OUTPUTS_DIR, chosen_output_file)
     print('You can now get your prediction file at : ' + pred_file_path)
+    return chosen_output_file
 
 
 
@@ -161,11 +160,3 @@ def get_leads(saved_file, threshold) :
 
 
 
-
-if __name__ == '__main__':
-
-    prediction_workflow()
-
-    #temp = get_leads(cf.RF_SAVED_FILENAME, 0.9)[['CONVERTI', cf.PRED_PROBA_COL_NAME, cf.PRED_COL_NAME]]
-
-    #print(temp.iloc[:20,:])

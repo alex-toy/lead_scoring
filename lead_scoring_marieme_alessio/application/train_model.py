@@ -1,4 +1,4 @@
-import src.config.config as cf
+import lead_scoring_marieme_alessio.config.config as cf
 import os
 
 from sklearn.model_selection import train_test_split
