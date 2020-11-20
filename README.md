@@ -1,35 +1,177 @@
-# Lead Scoring Alessio Marieme
+
+# Lead Scoring Alessio Marieme 
+========================================================
 
 The aim of the project is to build a machine learning model in which a score is given to each of the leads such that prospects with a higher score have a bigger chance of conversion and vice versa.
 
-lead-scoring-alessio-marieme
+
+example of use:
+
+    >>> from leads_scoring_marieme_alessio.pipeline_transformer import pipeline_transformer
+    >>> pipeline_transformer()
+
+
+├── README.md
+├── activate.sh
+├── assignment
+│   └── Lead Scoring - Data Dictionary.pdf
+├── config_poetry.txt
 ├── data
-│   └── data                         
-│                                 
-├── notebooks
-│   ├── phase_exploratoire
-│   ├── Recherche_Modele                                               
-│   └── Intelligibilite
-│
-├── src                                                             
+│   ├── README.md
+│   └── data.csv
+├── init.sh
+├── lead_scoring_marieme_alessio
 │   ├── __init__.py
-│   ├── infrastructur
-│   │   ├── __init__.py
-│   │   └── CleanDataTransformer.py                           
-│   ├── domain
-│   │   ├── __init__.py
-│   │   ├── CategoricalTransformer.py
-│   │   ├── NumericalTransformer.py    
-│   │   ├── pipeline_tranformer.py                                          
-│   │   └── FeatureSelector.py
 │   ├── application
 │   │   ├── __init__.py
+│   │   ├── main.py
 │   │   ├── predict.py
-│   │   ├── train_model.py
-│   │   └── main.py
-│   └── postprocessing.py
-├── .gitignore                                                     
+│   │   └── train_model.py
+│   ├── config
+│   │   ├── __init__.py
+│   │   ├── config.py
+│   │   ├── use_der_act_not.txt
+│   │   ├── use_index_act.txt
+│   │   ├── use_niveau_lead.txt
+│   │   ├── use_origin_lead.txt
+│   │   ├── use_qualite_lead.txt
+│   │   ├── use_source_lead.txt
+│   │   ├── use_spec.txt
+│   │   ├── use_tags.txt
+│   │   └── use_ville.txt
+│   ├── domain
+│   │   ├── __init__.py
+│   │   ├── categoricalTransformer.py
+│   │   ├── evaluate_model.py
+│   │   ├── featureSelector.py
+│   │   ├── gb_pipeline.py
+│   │   ├── log_reg_pipeline.py
+│   │   ├── numericalTransformer.py
+│   │   ├── perf.txt
+│   │   ├── pipeline_transformer.py
+│   │   └── rand_for_pipeline.py
+│   └── infrastructure
+│       ├── __init__.py
+│       └── cleanDataTransformer.py
+├── models
+│   ├── gb.joblib
+│   ├── log_reg.joblib
+│   └── rf.joblib
+├── notebook
+│   ├── data_model_rf.pickle
+│   ├── gridsearch.ipynb
+│   ├── intelligibility.ipynb
+│   └── utils
+│       ├── Icon\015
+│       ├── __init__.py
+│       ├── mltask.py
+│       ├── plot.py
+│       └── postprocessing.py
+├── output
+│   ├── README.md
+│   ├── gb_processed_data.csv
+│   └── log_reg_processed_data.csv
 ├── poetry.lock
-├── pyproject.toml                                            
-├── README.md                                                       
-└── assignement
+├── predict
+│   ├── README.md
+│   └── data.csv
+└── pyproject.toml
+
+## Prerequisite: install the last version of poetry if you haven't installed it yet 
+$ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3 -
+$ poetry config virtualenvs.in-project true
+
+## 0. Clone this repository
+
+```
+$ git clone <this project>
+$ cd <this project>
+```
+
+## 1. Setup your virtual environment and activate it
+
+Goal : create a local virtual environment with poetry in the folder `./.venv/`.
+
+- First: check your python3 version:
+
+    ```
+    $ python3 --version
+    # examples of outputs: 
+    Python 3.6.2 :: Anaconda, Inc.
+    Python 3.8.5 (this code was written with this version)
+
+    $ which python3
+    /Users/benjamin/anaconda3/bin/python3
+    /usr/bin/python3
+    ```
+
+    - If you don't have python3 and you are working on your mac: install it from [python.org](https://www.python.org/downloads/)
+    - If you don't have python3 and are working on an ubuntu-like system: install from package manager:
+
+        ```
+        $ apt-get update
+        $ apt-get -y install python3 python3-pip python3-venv
+        ```
+
+- Now that python3 is installed create your environment, install the project's requirements and activate it:
+
+    ```
+    $ make init
+    $ source activate.sh
+    if you see error like this: bash: .venv/bin/activate: Permission denied
+    do : chmod 741 .venv/bin/activate before doing source activate.sh
+    ```
+
+    You sould **allways** activate your environment when working on the project.
+
+    If it fails with one of the following message :
+    ```
+    "ERROR: failed to create the .venv : do it yourself!"
+    "ERROR: failed to activate virtual environment .venv! ask for advice on #dev "
+    ```
+
+    instructions on how to create an environment by yourself:
+        if you have a pyproject.toml file in the folder do:
+            $ poetry install 
+        else 
+            $ poetry init
+            $ install the modules in the pyproject.toml in gitlab by doing: poetry add <name_module>
+
+
+
+## 3. Check that everything is running properly. The `Makefile` comes with useful features:
+
+```
+$ make help
+coverage                       run code coverage (% of code tested)
+doc                            build documentation from docstring
+help                           Show this help.
+install-dev                    install developpment dependencies (for testing, linting etc.)
+install                        install project dependencies (requirements.txt)
+lint                           Check that your code follows the PEP8 standards
+pipeline                       run main project pipeline
+tests                          run unit tests
+
+# start the tests:
+$ make tests
+```
+
+
+## 4. Start coding! 
+
+Your code will go in the folder `forecast/`.
+
+You can change your settings (where data is stored, database url / passwords)
+in `forecast/settings/`:
+    - `.env` should contain **secret infos** (passwords)
+    - `base.py` or `dev.py` should contain the rest of the configuration
+
+
+## 5. Check your Continuous-Integration setup
+
+By default this project comes equiped with a `.gitlab-ci.yml` file that
+defines an ensamble of tests that are performed automatically by gitlab
+every time code is pushed to the repo.
+
+
+

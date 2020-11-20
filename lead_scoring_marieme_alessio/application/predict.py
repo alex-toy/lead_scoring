@@ -9,7 +9,7 @@ import pandas as pd
 
 from sklearn.model_selection import train_test_split
 
-from lead_scoring_marieme_alessio.infrastructure.cleanDataTransformer import CleanDataTransformer
+from lead_scoring_marieme_alessio.infrastructure.clean_data_transformer import CleanDataTransformer
 from lead_scoring_marieme_alessio.domain.log_reg_pipeline import log_reg_pipeline
 from lead_scoring_marieme_alessio.domain.rand_for_pipeline import rand_for_pipeline
 from lead_scoring_marieme_alessio.domain.gb_pipeline import gb_pipeline

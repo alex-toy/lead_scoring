@@ -43,3 +43,4 @@ src/domain/__pycache__/gb_pipeline.cpython-38.pyc
 src/domain/__pycache__/__init__.cpython-38.pyc
 src/domain/__pycache__/gb_pipeline.cpython-38.pyc
 src/__pycache__/__init__.cpython-38.pyc
+predict/data.csv
