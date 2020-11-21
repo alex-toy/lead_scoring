@@ -1,6 +1,12 @@
 import numpy as np 
 import pandas as pd
 
+import json 
+
+import os
+import os.path
+from os import path
+
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.preprocessing import StandardScaler, LabelEncoder, LabelBinarizer, OrdinalEncoder, OneHotEncoder
 from sklearn.impute import SimpleImputer
@@ -29,10 +35,26 @@ def log_reg_pipeline(X_train, y_train):
     
     full_pipeline = pipeline_transformer()
 
+    param_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../notebook/best_params.json'))
+
+    C = 1
+    penalty = 'l2'
+    
+    if path.isfile(param_path) :
+        with open(param_path) as param_file:
+            data = json.load(param_file)
+            if 'reg_log' in data.keys():
+                params = data['random_forest']
+                if 'C' in params.keys():
+                    C = params['C']
+                if 'penalty' in params.keys():
+                    penalty = params['penalty']
+                
+
 
     log_reg_pipeline = Pipeline( steps = [ 
         ( 'full_pipeline', full_pipeline),
-        ( 'log_reg', LogisticRegression(max_iter=1000) ) 
+        ( 'log_reg', LogisticRegression(max_iter=1000, C=C, penalty=penalty) ) 
     ])
     log_reg_pipeline.fit( X_train, y_train )
 
