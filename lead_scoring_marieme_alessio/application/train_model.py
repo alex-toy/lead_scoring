@@ -6,6 +6,7 @@ from sklearn.model_selection import train_test_split
 from lead_scoring_marieme_alessio.domain.log_reg_pipeline import log_reg_pipeline
 from lead_scoring_marieme_alessio.domain.rand_for_pipeline import rand_for_pipeline
 from lead_scoring_marieme_alessio.domain.gb_pipeline import gb_pipeline
+from lead_scoring_marieme_alessio.domain.svc_pipeline import svc_pipeline
 
 from lead_scoring_marieme_alessio.domain.evaluate_model import evaluate_model
 
@@ -46,23 +47,35 @@ def train_model() :
     f.truncate(0)
     f.close()
 
+    models = [
+        {
+            "name" : "Logistic regression", 
+            "pipeline" : log_reg_pipeline, 
+            "file" : cf.LOG_REG_MODEL_FILE
+        },{
+            "name" : "Random forest", 
+            "pipeline" : rand_for_pipeline, 
+            "file" : cf.RF_MODEL_FILE 
+        },{
+            "name" : "svm", 
+            "pipeline" : svc_pipeline, 
+            "file" : cf.SVC_MODEL_FILE 
+        }
+    ]
 
-    print('*'*50)
-    print('Logistic regression')
-    logger.info('Run train_model: %s', 'initiated Logistic regression training job', extra=d)
-    evaluate_model(log_reg_pipeline, X_train, X_test, y_train, y_test, cf.LOG_REG_MODEL_FILE)
-    
 
-    print('*'*50)
-    print('Random forest')
-    logger.info('Run train_model: %s', 'initiated random forest training job', extra=d)
-    evaluate_model(rand_for_pipeline, X_train, X_test, y_train, y_test, cf.RF_MODEL_FILE)
+    for model in models : 
+        print('*'*50)
+        print(model["name"])
+        logger.info('Run train_model: %s', f'initiated {model["name"]} training job', extra=d)
+        evaluate_model(model["pipeline"], X_train, X_test, y_train, y_test, model["file"])
 
 
-    print('*'*50)
-    print('Gradient boosting')
-    logger.info('Run train_model: %s', 'initiated gradient boosting training job', extra=d)
-    evaluate_model(gb_pipeline, X_train, X_test, y_train, y_test, cf.GB_MODEL_FILE)
+
+    # print('*'*50)
+    # print('Gradient boosting')
+    # logger.info('Run train_model: %s', 'initiated gradient boosting training job', extra=d)
+    # evaluate_model(gb_pipeline, X_train, X_test, y_train, y_test, cf.GB_MODEL_FILE)
     
     
 

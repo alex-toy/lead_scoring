@@ -72,11 +72,6 @@ def rand_for_pipeline(X_train, y_train):
     ])
 
 
-
-
-
-
-
     rf_pipeline.fit( X_train, y_train )
 
 
