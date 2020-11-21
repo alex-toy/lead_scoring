@@ -41,7 +41,7 @@ def svc_pipeline(X_train, y_train):
 
     C = 1,
     gamma = 'scale',
-    kernel = 'rbf',
+    kernel = 'linear',
     
     if path.isfile(param_path) :
         with open(param_path) as param_file:
@@ -58,9 +58,9 @@ def svc_pipeline(X_train, y_train):
     svc_pipeline = Pipeline( steps = [ 
         ( 'full_pipeline', full_pipeline),
         ( 'rf', SVC(
-                    C=C,
-                    gamma=gamma,
-                    kernel=kernel,
+                    #C=C,
+                    #gamma=gamma,
+                    #kernel=kernel,
                     probability=True
                 )) 
     ])
