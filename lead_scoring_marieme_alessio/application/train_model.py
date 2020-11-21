@@ -60,6 +60,10 @@ def train_model() :
             "name" : "svm", 
             "pipeline" : svc_pipeline, 
             "file" : cf.SVC_MODEL_FILE 
+        },{
+            "name" : "Gradient boosting", 
+            "pipeline" : gb_pipeline, 
+            "file" : cf.GB_MODEL_FILE 
         }
     ]
 
@@ -69,13 +73,4 @@ def train_model() :
         print(model["name"])
         logger.info('Run train_model: %s', f'initiated {model["name"]} training job', extra=d)
         evaluate_model(model["pipeline"], X_train, X_test, y_train, y_test, model["file"])
-
-
-
-    # print('*'*50)
-    # print('Gradient boosting')
-    # logger.info('Run train_model: %s', 'initiated gradient boosting training job', extra=d)
-    # evaluate_model(gb_pipeline, X_train, X_test, y_train, y_test, cf.GB_MODEL_FILE)
-    
-    
 
