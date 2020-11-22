@@ -1,4 +1,3 @@
-
 # Lead Scoring Alessio Marieme 
 ========================================================
 
@@ -144,25 +143,8 @@ Goal : create a local virtual environment with poetry in the folder `./.venv/`.
 
 
 
-## 2. Check that everything is running properly. The `Makefile` comes with useful features:
 
-```
-$ make help
-coverage                       run code coverage (% of code tested)
-doc                            build documentation from docstring
-help                           Show this help.
-install-dev                    install developpment dependencies (for testing, linting etc.)
-install                        install project dependencies (requirements.txt)
-lint                           Check that your code follows the PEP8 standards
-pipeline                       run main project pipeline
-tests                          run unit tests
-
-# start the tests:
-$ make tests
-```
-
-
-## 3. Start using the app
+## 2. Start using the app
 
 - You first want to train the models :
 
@@ -172,7 +154,7 @@ $ make tests
 
     - cd into lead_scoring_marieme_alessio/application
 
-    c
+    - run python main.py and choose option 1 (default)
 
     - if everything runs correctly, the application has created different .joblib files in the models folder.
 
