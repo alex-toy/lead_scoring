@@ -139,7 +139,7 @@ Goal : create a local virtual environment with poetry in the folder `./.venv/`.
 
 
 
-## 3. Check that everything is running properly. The `Makefile` comes with useful features:
+## 2. Check that everything is running properly. The `Makefile` comes with useful features:
 
 ```
 $ make help
@@ -157,21 +157,47 @@ $ make tests
 ```
 
 
-## 4. Start coding! 
+## 3. Start using the app
 
-Your code will go in the folder `forecast/`.
+- You first want to train the models :
 
-You can change your settings (where data is stored, database url / passwords)
-in `forecast/settings/`:
-    - `.env` should contain **secret infos** (passwords)
-    - `base.py` or `dev.py` should contain the rest of the configuration
+    - activate the python environment : source activate.sh
+
+    - put your csv file containing data as well as target (CONVERTI) in the data folder at the root of the project.
+
+    - cd into lead_scoring_marieme_alessio/application
+
+    c
+
+    - if everything runs correctly, the application has created different .joblib files in the models folder.
 
 
-## 5. Check your Continuous-Integration setup
+- You now want to make predictions :
 
-By default this project comes equiped with a `.gitlab-ci.yml` file that
-defines an ensamble of tests that are performed automatically by gitlab
-every time code is pushed to the repo.
+    - put your csv file that you want to get predictions for in the predict folder.
+
+    - run python main.py
+
+    - choose option 2.
+
+    - enter the name of the file (defaults to data.csv)
+
+    - choose your strategy :
+
+        - option 1 (default) : you can choose your model based on all the available .joblib files that you have previously created.
+
+        - option 2 : the application has stored in the lead_scoring_marieme_alessio/domain the perf.txt file that contains the precision of all available models. Based on that it will choose the best model for you.
+
+    - if everything runs properly you can get your csv file containing a new PREDICTED_PROBABILITY column in the lead-scoring-alessio-marieme/output folder.
+
+    - the application now offers to retrieve your data based on a threshold.
+
+
+You can also run the notebook/gridsearch.ipynb notebook if you want to grid search your model. it will produce a best_params.json file in the notebook folder. The application will then automatically use those parameters when training the models.
+
+
+
+
 
 
 
