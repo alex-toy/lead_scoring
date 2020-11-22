@@ -35,7 +35,7 @@ GB_SAVED_FILENAME = GB + _SAVED_FILENAME
 GB_MODEL_FILE = GB + JL
 
 
-INFO_LOG_FILE_NAME = ''
+INFO_LOG_FILE_NAME = 'lead_scoring_info_log.log'
 DATA_DIR = os.path.join(REPO_DIR, 'logs')
 FILE_LOG = os.path.join(DATA_DIR, INFO_LOG_FILE_NAME)
 LOGGING_FORMAT = '[%(asctime)s][%(levelname)s][%(module)s] - %(message)s'
