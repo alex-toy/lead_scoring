@@ -156,7 +156,7 @@ def clean_line(line) :
 #############################
 
 
-use_origin_lead = []
+"""use_origin_lead = []
 path =os.path.abspath(os.path.join(os.path.dirname(__file__), 'use_origin_lead.txt'))
 f = open(path, 'r') 
 lines = f.readlines()
@@ -183,15 +183,6 @@ for line in lines:
     use_niveau_lead.append(line)
 
 
-use_qualite_lead = []
-path =os.path.abspath(os.path.join(os.path.dirname(__file__), 'use_qualite_lead.txt'))
-f = open(path, 'r') 
-lines = f.readlines()
-for line in lines: 
-    line = clean_line(line)
-    use_qualite_lead.append(line)
-
-
 use_der_act_not = []
 path =os.path.abspath(os.path.join(os.path.dirname(__file__), 'use_der_act_not.txt'))
 f = open(path, 'r') 
@@ -199,15 +190,6 @@ lines = f.readlines()
 for line in lines: 
     line = clean_line(line)
     use_der_act_not.append(line)
-
-
-use_tags = []
-path =os.path.abspath(os.path.join(os.path.dirname(__file__), 'use_tags.txt'))
-f = open(path, 'r') 
-lines = f.readlines()
-for line in lines: 
-    line = clean_line(line)
-    use_tags.append(line)
 
 
 use_ville = []
@@ -234,22 +216,44 @@ f = open(path, 'r')
 lines = f.readlines()
 for line in lines: 
     line = clean_line(line)
-    use_index_act.append(line)
+    use_index_act.append(line)"""
+
+use_qualite_lead = []
+path =os.path.abspath(os.path.join(os.path.dirname(__file__), 'use_qualite_lead.txt'))
+f = open(path, 'r') 
+lines = f.readlines()
+for line in lines: 
+    line = clean_line(line)
+    use_qualite_lead.append(line)
+
+use_tags = []
+path =os.path.abspath(os.path.join(os.path.dirname(__file__), 'use_tags.txt'))
+f = open(path, 'r') 
+lines = f.readlines()
+for line in lines: 
+    line = clean_line(line)
+    use_tags.append(line)
+
+use_der_act = []
+path =os.path.abspath(os.path.join(os.path.dirname(__file__), 'use_der_act.txt'))
+f = open(path, 'r') 
+lines = f.readlines()
+for line in lines: 
+    line = clean_line(line)
+    use_der_act_not.append(line)
+
+#CAT_FEAT = [
+    #ORIGINE_LEAD, SOURCE_LEAD, NIVEAU_LEAD, TAGS, VILLE, SPECIALISATION, INDEX_ACTIVITE,
+    #QUALITE_LEAD, CONTACT_PAR_MAIL, STATUT_ACTUEL, DERNIERE_ACTIVITE, DERNIERE_ACTIVITE_NOTABLE
+#]
 
 
+#CAT_FEAT = [
+    #ORIGINE_LEAD, SOURCE_LEAD, NIVEAU_LEAD, TAGS, VILLE, SPECIALISATION, DERNIERE_ACTIVITE_NOTABLE
+#]
+CAT_FEAT = [QUALITE_LEAD, TAGS, DERNIERE_ACTIVITE]
 
-CAT_FEAT = [
-    ORIGINE_LEAD, SOURCE_LEAD, NIVEAU_LEAD, TAGS, VILLE, SPECIALISATION, INDEX_ACTIVITE,
-    QUALITE_LEAD, CONTACT_PAR_MAIL, STATUT_ACTUEL, DERNIERE_ACTIVITE, DERNIERE_ACTIVITE_NOTABLE
-]
-
-
-CAT_FEAT = [
-    ORIGINE_LEAD, SOURCE_LEAD, NIVEAU_LEAD, TAGS, VILLE, SPECIALISATION, DERNIERE_ACTIVITE_NOTABLE
-]
-
-
-use_lists = [
+"""use_lists = [
     use_origin_lead,
     use_source_lead,
     use_niveau_lead,
@@ -257,10 +261,15 @@ use_lists = [
     use_ville,
     use_spec,
     use_der_act_not
+]"""
+use_lists = [
+    use_qualite_lead,
+    use_tags,
+    use_der_act
 ]
 
 
-CAT_FEAT_ORD = [
+"""CAT_FEAT_ORD = [
     INDEX_ACTIVITE, QUALITE_LEAD
 ]
 
@@ -269,12 +278,13 @@ use_lists_ord = [
     use_index_act,
     use_qualite_lead
 ]
+"""
 
+"NUM_FEAT = [ NB_VISITES, SCORE_ACTIVITE, NB_PAGES_VUES_PAR_VISITE, SCORE_PROFIL, DUREE_SUR_SITEWEB ]
 
-NUM_FEAT = [ NB_VISITES, SCORE_ACTIVITE, NB_PAGES_VUES_PAR_VISITE, SCORE_PROFIL, DUREE_SUR_SITEWEB ]
+NUM_FEAT =[DUREE_SUR_SITEWEB]
 
+#FEATURES = CAT_FEAT + CAT_FEAT_ORD + NUM_FEAT
 
-FEATURES = CAT_FEAT + CAT_FEAT_ORD + NUM_FEAT
-
-
+FEATURES = CAT_FEAT + NUM_FEAT
 COLS_TO_KEEP = FEATURES + [TARGET]
