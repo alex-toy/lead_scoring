@@ -242,53 +242,26 @@ for line in lines:
     line = clean_line(line)
     use_der_act.append(line)
 
-#CAT_FEAT = [
-    #ORIGINE_LEAD, SOURCE_LEAD, NIVEAU_LEAD, TAGS, VILLE, SPECIALISATION, INDEX_ACTIVITE,
-    #QUALITE_LEAD, CONTACT_PAR_MAIL, STATUT_ACTUEL, DERNIERE_ACTIVITE, DERNIERE_ACTIVITE_NOTABLE
-#]
+use_index_profil = []
+path =os.path.abspath(os.path.join(os.path.dirname(__file__), 'use_index_profil.txt'))
+f = open(path, 'r') 
+lines = f.readlines()
+for line in lines: 
+    line = clean_line(line)
+    use_index_profil.append(line)
 
+CAT_FEAT = [QUALITE_LEAD, TAGS, DERNIERE_ACTIVITE]
 
-#CAT_FEAT = [
-    #ORIGINE_LEAD, SOURCE_LEAD, NIVEAU_LEAD, TAGS, VILLE, SPECIALISATION, DERNIERE_ACTIVITE_NOTABLE
-#]
-CAT_FEAT = [QUALITE_LEAD, TAGS, DERNIERE_ACTIVITE, NIVEAU_LEAD, DERNIERE_ACTIVITE_NOTABLE]
-
-
-"""
-use_lists = [
-    use_origin_lead,
-    use_source_lead,
-    use_niveau_lead,
-    use_tags,
-    use_ville,
-    use_spec,
-    use_der_act_not
-]
-"""
 use_lists = [
     use_qualite_lead,
     use_tags,
     use_der_act,
-    use_niveau_lead,
-    use_der_act_not
+    #use_niveau_lead,
+    #use_der_act_not,
+    #use_index_profil
 ]
 
-"""
-CAT_FEAT_ORD = [
-    INDEX_ACTIVITE, QUALITE_LEAD
-]
-
-use_lists_ord = [
-    use_index_act,
-    use_qualite_lead
-]
-"""
-
-"NUM_FEAT = [ NB_VISITES, SCORE_ACTIVITE, NB_PAGES_VUES_PAR_VISITE, SCORE_PROFIL, DUREE_SUR_SITEWEB ]"
-
-NUM_FEAT =[DUREE_SUR_SITEWEB]
-
-#FEATURES = CAT_FEAT + CAT_FEAT_ORD + NUM_FEAT
+NUM_FEAT =[DUREE_SUR_SITEWEB, NB_VISITES]
 
 FEATURES = CAT_FEAT + NUM_FEAT
 COLS_TO_KEEP = FEATURES + [TARGET]

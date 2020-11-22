@@ -6,14 +6,11 @@ logging.basicConfig(format=cf.LOGGING_FORMAT, filename=cf.FILE_LOG, level=loggin
 d = {'clientip': '192.168.0.1', 'user': 'fbloggs'}
 logger = logging.getLogger('tcpserver')
 
-#Custom transformer we wrote to engineer features 
 class NumericalTransformer(BaseEstimator, TransformerMixin):
     
-    #Class Constructor
     def __init__( self ) :
         pass
         
-    #Return self, nothing else to do here
     def fit( self, X, y = None ) :
         return self 
 
@@ -25,6 +22,6 @@ class NumericalTransformer(BaseEstimator, TransformerMixin):
 
         #remove outliers
         new_X.loc[new_X [cf.NB_VISITES] > 50,[cf.NB_VISITES]] = 50 
-        new_X.loc[new_X [cf.NB_PAGES_VUES_PAR_VISITE] > 20, [cf.NB_PAGES_VUES_PAR_VISITE]] = 20
+        #new_X.loc[new_X [cf.NB_PAGES_VUES_PAR_VISITE] > 20, [cf.NB_PAGES_VUES_PAR_VISITE]] = 20
 
         return new_X 

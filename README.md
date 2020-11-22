@@ -4,6 +4,11 @@
 
 The aim of the project is to build a machine learning model in which a score is given to each of the leads such that prospects with a higher score have a bigger chance of conversion and vice versa.
 
+Before running anything :
+
+- go into the folders predict and data and read the README.md files inside.
+- create folders /models and /output at the root.
+
 
 example of use:
 

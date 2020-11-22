@@ -20,7 +20,6 @@ from lead_scoring_marieme_alessio.domain.feature_selector import FeatureSelector
 
 def pipeline_transformer():
 
-    #Defining the steps in the categorical pipeline 
     categorical_pipeline = Pipeline( steps = [ 
                 ( 'cat_selector', FeatureSelector(cf.CAT_FEAT) ),
                 ( 'cat transformer', CategoricalTransformer()),
@@ -28,52 +27,20 @@ def pipeline_transformer():
                 ( 'one_hot_encoder', OneHotEncoder( sparse = False ) )
     ])
     
-    #Defining the steps in the numerical pipeline     
-    """numerical_pipeline = Pipeline( steps = [ 
-                ( 'num_selector', FeatureSelector(cf.NUM_FEAT) ),
-                ( 'num_transformer', NumericalTransformer() ),
-                ( 'num_inputer', SimpleImputer(missing_values = np.nan,strategy='median') ),
-                ( 'std_scaler', StandardScaler() ) 
-    ])
-    
-    enc = OrdinalEncoder()
-    cats = [['Faible', 1], ['Moyen', 2], ['Elevé', 3]]
-    enc.fit(cats)
-    categorical_pipeline_ord = Pipeline( steps = [ 
-            ( 'cat_selector_ord', FeatureSelector(cf.CAT_FEAT_ORD) ),
-            ( 'cat_inputer_ord', SimpleImputer(strategy='most_frequent') ),
-            ( 'ordinal_encoder_ord', enc)
-    ])"""
 
     numerical_pipeline = Pipeline( steps = [ 
                 ( 'num_selector', FeatureSelector(cf.NUM_FEAT) ),
+                ( 'num_transformer', NumericalTransformer() ),
                 ( 'num_inputer', SimpleImputer(missing_values = np.nan,strategy='median') ),
-                ( 'std_scaler', StandardScaler() ) 
-    ])
-
-
-    num_pipeline_log_transform = Pipeline( steps = [ 
-                ( 'num_selector', FeatureSelector(cf.NUM_FEAT) ),
                 ( 'log_trans', FunctionTransformer(np.log1p) ),
                 ( 'std_scaler', StandardScaler() ) 
     ])
 
 
-    #Combining numerical and categorical piepline into one full big pipeline horizontally 
-    #using FeatureUnion
     union_pipeline = FeatureUnion( transformer_list = [ 
             ( 'categorical_pipeline', categorical_pipeline ), 
-            ( 'numerical_pipeline', numerical_pipeline ),
-            ('num_pipeline_log_transform', num_pipeline_log_transform) 
+            ( 'numerical_pipeline', numerical_pipeline )
     ])
 
-        #Combining numerical and categorical piepline into one full big pipeline horizontally 
-    #using FeatureUnion
-    union_pipeline = FeatureUnion( transformer_list = [ 
-            ( 'categorical_pipeline', categorical_pipeline ), 
-            ( 'numerical_pipeline', numerical_pipeline ),
-            ( 'num_pipeline_log_transform', num_pipeline_log_transform )
-    ])
-
-
+    
     return union_pipeline
