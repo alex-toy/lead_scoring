@@ -15,14 +15,13 @@ example of use:
     >>> pipeline_transformer()
 
 
+.
 ├── README.md
 ├── activate.sh
 ├── assignment
 │   └── Lead Scoring - Data Dictionary.pdf
-├── config_poetry.txt
 ├── data
-│   ├── README.md
-│   └── data.csv
+│   └── README.md
 ├── init.sh
 ├── lead_scoring_marieme_alessio
 │   ├── __init__.py
@@ -34,51 +33,40 @@ example of use:
 │   ├── config
 │   │   ├── __init__.py
 │   │   ├── config.py
-│   │   ├── use_der_act_not.txt
-│   │   ├── use_index_act.txt
-│   │   ├── use_niveau_lead.txt
-│   │   ├── use_origin_lead.txt
+│   │   ├── use_der_act.txt
 │   │   ├── use_qualite_lead.txt
-│   │   ├── use_source_lead.txt
-│   │   ├── use_spec.txt
-│   │   ├── use_tags.txt
-│   │   └── use_ville.txt
+│   │   └── use_tags.txt
 │   ├── domain
 │   │   ├── __init__.py
-│   │   ├── categoricalTransformer.py
+│   │   ├── categorical_transformer.py
 │   │   ├── evaluate_model.py
-│   │   ├── featureSelector.py
+│   │   ├── feature_selector.py
 │   │   ├── gb_pipeline.py
 │   │   ├── log_reg_pipeline.py
-│   │   ├── numericalTransformer.py
+│   │   ├── numerical_transformer.py
 │   │   ├── perf.txt
 │   │   ├── pipeline_transformer.py
-│   │   └── rand_for_pipeline.py
+│   │   ├── rand_for_pipeline.py
+│   │   └── svc_pipeline.py
 │   └── infrastructure
 │       ├── __init__.py
-│       └── cleanDataTransformer.py
-├── models
-│   ├── gb.joblib
-│   ├── log_reg.joblib
-│   └── rf.joblib
+│       └── clean_data_transformer.py
+├── logs
+│   └── lead_scoring_info_log.log
 ├── notebook
 │   ├── data_model_rf.pickle
+│   ├── exploration_finale.ipynb
 │   ├── gridsearch.ipynb
-│   ├── intelligibility.ipynb
+│   ├── rf_interpretability.ipynb
 │   └── utils
 │       ├── Icon\015
 │       ├── __init__.py
 │       ├── mltask.py
 │       ├── plot.py
 │       └── postprocessing.py
-├── output
-│   ├── README.md
-│   ├── gb_processed_data.csv
-│   └── log_reg_processed_data.csv
 ├── poetry.lock
 ├── predict
-│   ├── README.md
-│   └── data.csv
+│   └── README.md
 └── pyproject.toml
 
 ## Prerequisite: install the last version of poetry if you haven't installed it yet 

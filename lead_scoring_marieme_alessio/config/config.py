@@ -35,7 +35,7 @@ GB_SAVED_FILENAME = GB + _SAVED_FILENAME
 GB_MODEL_FILE = GB + JL
 
 
-INFO_LOG_FILE_NAME = 'lead_scoring_info_log.log'
+INFO_LOG_FILE_NAME = ''
 DATA_DIR = os.path.join(REPO_DIR, 'logs')
 FILE_LOG = os.path.join(DATA_DIR, INFO_LOG_FILE_NAME)
 LOGGING_FORMAT = '[%(asctime)s][%(levelname)s][%(module)s] - %(message)s'
@@ -156,68 +156,6 @@ def clean_line(line) :
 #############################
 
 
-use_origin_lead = []
-path =os.path.abspath(os.path.join(os.path.dirname(__file__), 'use_origin_lead.txt'))
-f = open(path, 'r') 
-lines = f.readlines()
-for line in lines:
-    line = clean_line(line)
-    use_origin_lead.append(line)
-
-
-use_source_lead = []
-path =os.path.abspath(os.path.join(os.path.dirname(__file__), 'use_source_lead.txt'))
-f = open(path, 'r') 
-lines = f.readlines()
-for line in lines: 
-    line = clean_line(line)
-    use_source_lead.append(line)
-
-
-use_niveau_lead = []
-path =os.path.abspath(os.path.join(os.path.dirname(__file__), 'use_niveau_lead.txt'))
-f = open(path, 'r') 
-lines = f.readlines()
-for line in lines: 
-    line = clean_line(line)
-    use_niveau_lead.append(line)
-
-
-use_der_act_not = []
-path =os.path.abspath(os.path.join(os.path.dirname(__file__), 'use_der_act_not.txt'))
-f = open(path, 'r') 
-lines = f.readlines()
-for line in lines: 
-    line = clean_line(line)
-    use_der_act_not.append(line)
-
-
-use_ville = []
-path =os.path.abspath(os.path.join(os.path.dirname(__file__), 'use_ville.txt'))
-f = open(path, 'r') 
-lines = f.readlines()
-for line in lines: 
-    line = clean_line(line)
-    use_ville.append(line)
-
-
-use_spec = []
-path =os.path.abspath(os.path.join(os.path.dirname(__file__), 'use_spec.txt'))
-f = open(path, 'r') 
-lines = f.readlines()
-for line in lines: 
-    line = clean_line(line)
-    use_spec.append(line)
-
-
-use_index_act = []
-path =os.path.abspath(os.path.join(os.path.dirname(__file__), 'use_index_act.txt'))
-f = open(path, 'r') 
-lines = f.readlines()
-for line in lines: 
-    line = clean_line(line)
-    use_index_act.append(line)
-
 use_qualite_lead = []
 path =os.path.abspath(os.path.join(os.path.dirname(__file__), 'use_qualite_lead.txt'))
 f = open(path, 'r') 
@@ -242,13 +180,7 @@ for line in lines:
     line = clean_line(line)
     use_der_act.append(line)
 
-use_index_profil = []
-path =os.path.abspath(os.path.join(os.path.dirname(__file__), 'use_index_profil.txt'))
-f = open(path, 'r') 
-lines = f.readlines()
-for line in lines: 
-    line = clean_line(line)
-    use_index_profil.append(line)
+
 
 CAT_FEAT = [QUALITE_LEAD, TAGS, DERNIERE_ACTIVITE]
 
@@ -256,9 +188,6 @@ use_lists = [
     use_qualite_lead,
     use_tags,
     use_der_act,
-    #use_niveau_lead,
-    #use_der_act_not,
-    #use_index_profil
 ]
 
 NUM_FEAT =[DUREE_SUR_SITEWEB, NB_VISITES]
