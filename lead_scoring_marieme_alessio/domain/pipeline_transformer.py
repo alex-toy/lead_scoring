@@ -4,7 +4,7 @@ from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import FeatureUnion, Pipeline 
 from sklearn.preprocessing import OrdinalEncoder
-from sklearn.preprocessing import StandardScaler, LabelEncoder, LabelBinarizer, OrdinalEncoder, OneHotEncoder
+from sklearn.preprocessing import StandardScaler, LabelEncoder, LabelBinarizer, OrdinalEncoder, OneHotEncoder, FunctionTransformer
 from sklearn.pipeline import FeatureUnion, Pipeline, make_pipeline
 from sklearn.linear_model import LogisticRegression, SGDClassifier
 from sklearn.model_selection import train_test_split, GridSearchCV, KFold
@@ -15,8 +15,6 @@ from lead_scoring_marieme_alessio.infrastructure.clean_data_transformer import C
 from lead_scoring_marieme_alessio.domain.categorical_transformer import CategoricalTransformer
 from lead_scoring_marieme_alessio.domain.numerical_transformer import NumericalTransformer
 from lead_scoring_marieme_alessio.domain.feature_selector import FeatureSelector
-
-
 
 
 
@@ -54,19 +52,27 @@ def pipeline_transformer():
     ])
 
 
-    """#Combining numerical and categorical piepline into one full big pipeline horizontally 
+    num_pipeline_log_transform = Pipeline( steps = [ 
+                ( 'num_selector', FeatureSelector(cf.NUM_FEAT) ),
+                ( 'log_trans', FunctionTransformer(np.log1p) ),
+                ( 'std_scaler', StandardScaler() ) 
+    ])
+
+
+    #Combining numerical and categorical piepline into one full big pipeline horizontally 
     #using FeatureUnion
     union_pipeline = FeatureUnion( transformer_list = [ 
             ( 'categorical_pipeline', categorical_pipeline ), 
             ( 'numerical_pipeline', numerical_pipeline ),
-            ('ordinal_transformer', categorical_pipeline_ord) 
-    ])"""
+            ('num_pipeline_log_transform', num_pipeline_log_transform) 
+    ])
 
         #Combining numerical and categorical piepline into one full big pipeline horizontally 
     #using FeatureUnion
     union_pipeline = FeatureUnion( transformer_list = [ 
             ( 'categorical_pipeline', categorical_pipeline ), 
-            ( 'numerical_pipeline', numerical_pipeline )
+            ( 'numerical_pipeline', numerical_pipeline ),
+            ( 'num_pipeline_log_transform', num_pipeline_log_transform )
     ])
 
 

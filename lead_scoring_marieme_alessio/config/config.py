@@ -156,7 +156,7 @@ def clean_line(line) :
 #############################
 
 
-"""use_origin_lead = []
+use_origin_lead = []
 path =os.path.abspath(os.path.join(os.path.dirname(__file__), 'use_origin_lead.txt'))
 f = open(path, 'r') 
 lines = f.readlines()
@@ -216,7 +216,7 @@ f = open(path, 'r')
 lines = f.readlines()
 for line in lines: 
     line = clean_line(line)
-    use_index_act.append(line)"""
+    use_index_act.append(line)
 
 use_qualite_lead = []
 path =os.path.abspath(os.path.join(os.path.dirname(__file__), 'use_qualite_lead.txt'))
@@ -251,9 +251,11 @@ for line in lines:
 #CAT_FEAT = [
     #ORIGINE_LEAD, SOURCE_LEAD, NIVEAU_LEAD, TAGS, VILLE, SPECIALISATION, DERNIERE_ACTIVITE_NOTABLE
 #]
-CAT_FEAT = [QUALITE_LEAD, TAGS, DERNIERE_ACTIVITE]
+CAT_FEAT = [QUALITE_LEAD, TAGS, DERNIERE_ACTIVITE, SOURCE_LEAD]
 
-"""use_lists = [
+
+"""
+use_lists = [
     use_origin_lead,
     use_source_lead,
     use_niveau_lead,
@@ -261,18 +263,19 @@ CAT_FEAT = [QUALITE_LEAD, TAGS, DERNIERE_ACTIVITE]
     use_ville,
     use_spec,
     use_der_act_not
-]"""
+]
+"""
 use_lists = [
     use_qualite_lead,
     use_tags,
-    use_der_act
+    use_der_act,
+    use_source_lead
 ]
 
-
-"""CAT_FEAT_ORD = [
+"""
+CAT_FEAT_ORD = [
     INDEX_ACTIVITE, QUALITE_LEAD
 ]
-
 
 use_lists_ord = [
     use_index_act,
