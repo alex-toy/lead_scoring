@@ -1,1 +1,0 @@
-{"svm": {"C": 10, "gamma": "auto", "kernel": "rbf"}, "random_forest": {"criterion": "gini", "max_depth": 10, "min_samples_leaf": 1, "min_samples_split": 2, "n_estimators": 100}, "reg_log": {"C": 1, "penalty": "l2"}}

@@ -240,7 +240,7 @@ f = open(path, 'r')
 lines = f.readlines()
 for line in lines: 
     line = clean_line(line)
-    use_der_act_not.append(line)
+    use_der_act.append(line)
 
 #CAT_FEAT = [
     #ORIGINE_LEAD, SOURCE_LEAD, NIVEAU_LEAD, TAGS, VILLE, SPECIALISATION, INDEX_ACTIVITE,
@@ -280,7 +280,7 @@ use_lists_ord = [
 ]
 """
 
-"NUM_FEAT = [ NB_VISITES, SCORE_ACTIVITE, NB_PAGES_VUES_PAR_VISITE, SCORE_PROFIL, DUREE_SUR_SITEWEB ]
+"NUM_FEAT = [ NB_VISITES, SCORE_ACTIVITE, NB_PAGES_VUES_PAR_VISITE, SCORE_PROFIL, DUREE_SUR_SITEWEB ]"
 
 NUM_FEAT =[DUREE_SUR_SITEWEB]
 
