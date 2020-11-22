@@ -251,7 +251,7 @@ for line in lines:
 #CAT_FEAT = [
     #ORIGINE_LEAD, SOURCE_LEAD, NIVEAU_LEAD, TAGS, VILLE, SPECIALISATION, DERNIERE_ACTIVITE_NOTABLE
 #]
-CAT_FEAT = [QUALITE_LEAD, TAGS, DERNIERE_ACTIVITE, SOURCE_LEAD]
+CAT_FEAT = [QUALITE_LEAD, TAGS, DERNIERE_ACTIVITE, NIVEAU_LEAD, DERNIERE_ACTIVITE_NOTABLE]
 
 
 """
@@ -269,7 +269,8 @@ use_lists = [
     use_qualite_lead,
     use_tags,
     use_der_act,
-    use_source_lead
+    use_niveau_lead,
+    use_der_act_not
 ]
 
 """

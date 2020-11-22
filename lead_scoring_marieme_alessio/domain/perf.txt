@@ -1,1 +1,1 @@
-log_reg.joblib:87.1;rf.joblib:85.36;svc.joblib:86.67;gb.joblib:87.43;
+log_reg.joblib:91.91;rf.joblib:90.16;svc.joblib:91.8;gb.joblib:92.02;
