@@ -11,8 +11,8 @@ Before running anything :
 
 example of use:
 
-    >>> from leads_scoring_marieme_alessio.pipeline_transformer import pipeline_transformer
-    >>> pipeline_transformer()
+>>> from leads_scoring_marieme_alessio.pipeline_transformer import pipeline_transformer
+>>> pipeline_transformer()
 
 
     .
