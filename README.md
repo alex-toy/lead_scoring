@@ -15,59 +15,59 @@ example of use:
     >>> pipeline_transformer()
 
 
-.
-├── README.md
-├── activate.sh
-├── assignment
-│   └── Lead Scoring - Data Dictionary.pdf
-├── data
-│   └── README.md
-├── init.sh
-├── lead_scoring_marieme_alessio
-│   ├── __init__.py
-│   ├── application
-│   │   ├── __init__.py
-│   │   ├── main.py
-│   │   ├── predict.py
-│   │   └── train_model.py
-│   ├── config
-│   │   ├── __init__.py
-│   │   ├── config.py
-│   │   ├── use_der_act.txt
-│   │   ├── use_qualite_lead.txt
-│   │   └── use_tags.txt
-│   ├── domain
-│   │   ├── __init__.py
-│   │   ├── categorical_transformer.py
-│   │   ├── evaluate_model.py
-│   │   ├── feature_selector.py
-│   │   ├── gb_pipeline.py
-│   │   ├── log_reg_pipeline.py
-│   │   ├── numerical_transformer.py
-│   │   ├── perf.txt
-│   │   ├── pipeline_transformer.py
-│   │   ├── rand_for_pipeline.py
-│   │   └── svc_pipeline.py
-│   └── infrastructure
-│       ├── __init__.py
-│       └── clean_data_transformer.py
-├── logs
-│   └── lead_scoring_info_log.log
-├── notebook
-│   ├── data_model_rf.pickle
-│   ├── exploration_finale.ipynb
-│   ├── gridsearch.ipynb
-│   ├── rf_interpretability.ipynb
-│   └── utils
-│       ├── Icon\015
-│       ├── __init__.py
-│       ├── mltask.py
-│       ├── plot.py
-│       └── postprocessing.py
-├── poetry.lock
-├── predict
-│   └── README.md
-└── pyproject.toml
+    .
+    ├── README.md
+    ├── activate.sh
+    ├── assignment
+    │   └── Lead Scoring - Data Dictionary.pdf
+    ├── data
+    │   └── README.md
+    ├── init.sh
+    ├── lead_scoring_marieme_alessio
+    │   ├── __init__.py
+    │   ├── application
+    │   │   ├── __init__.py
+    │   │   ├── main.py
+    │   │   ├── predict.py
+    │   │   └── train_model.py
+    │   ├── config
+    │   │   ├── __init__.py
+    │   │   ├── config.py
+    │   │   ├── use_der_act.txt
+    │   │   ├── use_qualite_lead.txt
+    │   │   └── use_tags.txt
+    │   ├── domain
+    │   │   ├── __init__.py
+    │   │   ├── categorical_transformer.py
+    │   │   ├── evaluate_model.py
+    │   │   ├── feature_selector.py
+    │   │   ├── gb_pipeline.py
+    │   │   ├── log_reg_pipeline.py
+    │   │   ├── numerical_transformer.py
+    │   │   ├── perf.txt
+    │   │   ├── pipeline_transformer.py
+    │   │   ├── rand_for_pipeline.py
+    │   │   └── svc_pipeline.py
+    │   └── infrastructure
+    │       ├── __init__.py
+    │       └── clean_data_transformer.py
+    ├── logs
+    │   └── lead_scoring_info_log.log
+    ├── notebook
+    │   ├── data_model_rf.pickle
+    │   ├── exploration_finale.ipynb
+    │   ├── gridsearch.ipynb
+    │   ├── rf_interpretability.ipynb
+    │   └── utils
+    │       ├── Icon\015
+    │       ├── __init__.py
+    │       ├── mltask.py
+    │       ├── plot.py
+    │       └── postprocessing.py
+    ├── poetry.lock
+    ├── predict
+    │   └── README.md
+    └── pyproject.toml
 
 ## Prerequisite: install the last version of poetry if you haven't installed it yet 
 $ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3 -
